@@ -71,7 +71,10 @@ const patchmallets = async (req, res, next) => {
     try {
       const UserDB = await User.find({ _id: uid, mallets: [mallid] });
       console.log({ UserDB });
-      if (!UserDB?.length) {
+      //const { id } = req.params;
+      //const userid = await User.findOn({});
+      //console.log({userid})
+      if (!UserDB?.length) {//&& userid !== uid
         // (UserDB != Undefined && UserDB.length > 0) Si la longitud es distinta a 0 y el usuario no existe, entra
         return next(setError(401, "Unauthorize"));
       }
