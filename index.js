@@ -29,7 +29,7 @@ app.use((req, res, next) => {
 })
 
 app.use(cors({
-    origin: ['http://localhost:3000', 'http://localhost:4200'],
+    origin: ['https://api-magic-library.vercel.app', 'http://localhost:4200'],
     credentials: true
 }))
 

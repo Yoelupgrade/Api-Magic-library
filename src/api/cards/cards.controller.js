@@ -56,7 +56,7 @@ const patchcards = async (req, res, next) => {
         if (!cardsDB) {
             return next(setError(404, 'card not found'))
         }
-        if (cardsDB.img) deleteFile(cardsDB.img)
+        if (cardsDB.img) {deleteFile(cardsDB.img)}
         return res.status(200).json({ new: patchcards, old: cardsDB })
     } catch (error) {
         return next(setError(500, 'card Patch server error'))
@@ -70,7 +70,7 @@ const deletecards = async (req, res, next) => {
         if (!cardsDB) {
             return next(setError(404, 'card not found'))
         }
-        if (cardsDB.img) deleteFile(cardsDB.img)
+        if (cardsDB.img) {deleteFile(cardsDB.img)}
         return res.status(200).json(cardsDB)
     } catch (error) {
         return next(setError(500, 'card removed server error'))

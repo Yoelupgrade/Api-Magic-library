@@ -85,31 +85,12 @@ const patchmallets = async (req, res, next) => {
     if (!malletsDB) {
       return next(setError(404, "mallet not found"));
     }
-    if (malletsDB.img) deleteFile(malletsDB.img);
+    if (malletsDB.img) {deleteFile(malletsDB.img)};
     return res.status(200).json({ new: patchmallets, old: malletsDB });
   } catch (error) {
     return next(setError(500, "mallet Patch server error"));
   }
 };
-// CON ESTE CODIGO OTRO USUARIO PODRÍA ACTUALIZAR LOS MALLETS
-// const patchmallets = async (req, res, next) => {
-//   try {
-//     const { id } = req.params;
-//     const patchmallets = new mallets(req.body);
-//     patchmallets._id = id;
-//     if (req.file) {
-//       patchmallets.img = req.file.path;
-//     }
-//     const malletsDB = await mallets.findByIdAndUpdate(id, patchmallets);
-//     if (!malletsDB) {
-//       return next(setError(404, "mallet not found"));
-//     }
-//     if (malletsDB.img) deleteFile(malletsDB.img);
-//     return res.status(200).json({ new: patchmallets, old: malletsDB });
-//   } catch (error) {
-//     return next(setError(500, "mallet Patch server error"));
-//   }
-// };
 
 const deletemallets = async (req, res, next) => {
   try {
@@ -118,7 +99,7 @@ const deletemallets = async (req, res, next) => {
     if (!malletsDB) {
       return next(setError(404, "mallet not found"));
     }
-    if (malletsDB.img) deleteFile(malletsDB.img);
+    if (malletsDB.img) {deleteFile(malletsDB.img)};
     return res.status(200).json(malletsDB);
   } catch (error) {
     return next(setError(500, "mallet removed server error"));
